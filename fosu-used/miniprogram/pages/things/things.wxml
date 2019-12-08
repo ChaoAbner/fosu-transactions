@@ -1,0 +1,210 @@
+<view style="height:45px; overflow:hidden;">
+    <view class="swiper-thing">
+        <view bindtap="swichNav" class="swiper-thing-list {{currentTab==0?'on':''}}" data-current="0">全部</view>
+        <view bindtap="swichNav" class="swiper-thing-list {{currentTab==1?'on':''}}" data-current="1">电子产品</view>
+        <view bindtap="swichNav" class="swiper-thing-list {{currentTab==2?'on':''}}" data-current="2">体育用品</view>
+        <view bindtap="swichNav" class="swiper-thing-list {{currentTab==3?'on':''}}" data-current="3">生活用品</view>
+        <view bindtap="swichNav" class="swiper-thing-list {{currentTab==4?'on':''}}" data-current="4">其他</view>
+    </view>
+</view>
+<view class="jianxi"></view>
+<view bindscrolltolower="loadMore" style="height:100%;" wx:if="{{currentTab==0}}">
+    <view style="display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;" wx:if="{{hasRefresh}}">
+        <image src="../../img/loading.gif" style="width:12px;height:12px"></image>
+        <text>玩命加载中...</text>
+    </view>
+    <view style="display:none" wx:else>
+        <text></text>
+    </view>
+    <view style="display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;margin-top：10rpx" wx:if="{{allMessage.length==0}}">
+        <text>当前页面暂时没有消息哦~</text>
+    </view>
+    <view wx:for="{{allMessage}}" wx:key="{{messageid}}">
+        <navigator class="dyn-item" id="{{item.messageid}}" url="/pages/content/content?messageid={{item.messageid}}">
+            <view>
+                <image class="dyn-icon" src="{{item.icon}}"></image>
+            </view>
+            <view class="dyn-content" style="width:650rpx;">
+                <text class="user-name">{{item.name}}</text>
+                <view class="content-msg">{{item.title}}</view>
+                <view class="upload-img ">
+                    <view class="upload-img">
+                        <view wx:if="{{index<3}}" wx:for="{{item.img}}" wx:key="{{item}}">
+                            <image mode="aspectFill" src="{{item}}"></image>
+                        </view>
+                    </view>
+                </view>
+                <text class="detail">#{{item.tag}}</text>
+                <view class="status-time">
+                    <text style="color:gray;line-height:20px;">{{item.time}}</text>
+                    <text class="reply response">浏览  |</text>
+                    <text class="reply goodNum">{{item.viewed}}</text>
+                </view>
+            </view>
+        </navigator>
+    </view>
+    <view style="display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;" wx:if="{{hasMore}}">
+        <image src="../../img/loading.gif" style="width:12px;height:12px"></image>
+        <text>玩命加载中...</text>
+    </view>
+</view>
+<view bindscrolltolower="loadMore" style="height:100%;" wx:if="{{currentTab==1}}">
+    <view style="display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;" wx:if="{{hasRefresh}}">
+        <image src="../../img/loading.gif" style="width:12px;height:12px"></image>
+        <text>玩命加载中...</text>
+    </view>
+    <view style="display:none" wx:else>
+        <text></text>
+    </view>
+    <view style="display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;margin-top：10rpx" wx:if="{{dianziMessage.length==0}}">
+        <text>当前页面暂时没有消息哦~</text>
+    </view>
+    <view wx:for="{{dianziMessage}}" wx:key="{{messageid}}">
+        <navigator class="dyn-item" id="{{item.messageid}}" url="/pages/content/content?messageid={{item.messageid}}">
+            <view>
+                <image class="dyn-icon" src="{{item.icon}}"></image>
+            </view>
+            <view class="dyn-content" style="width:650rpx;">
+                <text class="user-name">{{item.name}}</text>
+                <view class="content-msg">{{item.title}}</view>
+                <view class="upload-img ">
+                    <view class="upload-img">
+                        <view wx:if="{{index<3}}" wx:for="{{item.img}}" wx:key="{{item}}">
+                            <image mode="aspectFill" src="{{item}}"></image>
+                        </view>
+                    </view>
+                </view>
+                <text class="detail">#{{item.tag}}</text>
+                <view class="status-time">
+                    <text style="color:gray;line-height:20px;">{{item.time}}</text>
+                    <text class="reply response">浏览  |</text>
+                    <text class="reply goodNum">{{item.viewed}}</text>
+                </view>
+            </view>
+        </navigator>
+    </view>
+    <view style="display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;" wx:if="{{hasMore}}">
+        <image src="../../img/loading.gif" style="width:12px;height:12px"></image>
+        <text>玩命加载中...</text>
+    </view>
+</view>
+<view bindscrolltolower="loadMore" style="height:100%;" wx:if="{{currentTab==2}}">
+    <view style="display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;" wx:if="{{hasRefresh}}">
+        <image src="../../img/loading.gif" style="width:12px;height:12px"></image>
+        <text>玩命加载中...</text>
+    </view>
+    <view style="display:none" wx:else>
+        <text></text>
+    </view>
+    <view style="display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;margin-top：10rpx" wx:if="{{tiyuMessage.length==0}}">
+        <text>当前页面暂时没有消息哦~</text>
+    </view>
+    <view wx:for="{{tiyuMessage}}" wx:key="{{messageid}}">
+        <navigator class="dyn-item" id="{{item.messageid}}" url="/pages/content/content?messageid={{item.messageid}}">
+            <view>
+                <image class="dyn-icon" src="{{item.icon}}"></image>
+            </view>
+            <view class="dyn-content" style="width:650rpx;">
+                <text class="user-name">{{item.name}}</text>
+                <view class="content-msg">{{item.title}}</view>
+                <view class="upload-img ">
+                    <view class="upload-img">
+                        <view wx:if="{{index<3}}" wx:for="{{item.img}}" wx:key="{{item}}">
+                            <image mode="aspectFill" src="{{item}}"></image>
+                        </view>
+                    </view>
+                </view>
+                <text class="detail">#{{item.tag}}</text>
+                <view class="status-time">
+                    <text style="color:gray;line-height:20px;">{{item.time}}</text>
+                    <text class="reply response">浏览  |</text>
+                    <text class="reply goodNum">{{item.viewed}}</text>
+                </view>
+            </view>
+        </navigator>
+    </view>
+    <view style="display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;" wx:if="{{hasMore}}">
+        <image src="../../img/loading.gif" style="width:12px;height:12px"></image>
+        <text>玩命加载中...</text>
+    </view>
+</view>
+<view bindscrolltolower="loadMore" style="height:100%;" wx:if="{{currentTab==3}}">
+    <view style="display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;" wx:if="{{hasRefresh}}">
+        <image src="../../img/loading.gif" style="width:12px;height:12px"></image>
+        <text>玩命加载中...</text>
+    </view>
+    <view style="display:none" wx:else>
+        <text></text>
+    </view>
+    <view style="display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;margin-top：10rpx" wx:if="{{lifeMessage.length==0}}">
+        <text>当前页面暂时没有消息哦~</text>
+    </view>
+    <view wx:for="{{lifeMessage}}" wx:key="{{messageid}}">
+        <navigator class="dyn-item" id="{{item.messageid}}" url="/pages/content/content?messageid={{item.messageid}}">
+            <view>
+                <image class="dyn-icon" src="{{item.icon}}"></image>
+            </view>
+            <view class="dyn-content" style="width:650rpx;">
+                <text class="user-name">{{item.name}}</text>
+                <view class="content-msg">{{item.title}}</view>
+                <view class="upload-img ">
+                    <view class="upload-img">
+                        <view wx:if="{{index<3}}" wx:for="{{item.img}}" wx:key="{{item}}">
+                            <image mode="aspectFill" src="{{item}}"></image>
+                        </view>
+                    </view>
+                </view>
+                <text class="detail">#{{item.tag}}</text>
+                <view class="status-time">
+                    <text style="color:gray;line-height:20px;">{{item.time}}</text>
+                    <text class="reply response">浏览  |</text>
+                    <text class="reply goodNum">{{item.viewed}}</text>
+                </view>
+            </view>
+        </navigator>
+    </view>
+    <view style="display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;" wx:if="{{hasMore}}">
+        <image src="../../img/loading.gif" style="width:12px;height:12px"></image>
+        <text>玩命加载中...</text>
+    </view>
+</view>
+<view bindscrolltolower="loadMore" style="height:100%;" wx:if="{{currentTab==4}}">
+    <view style="display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;" wx:if="{{hasRefresh}}">
+        <image src="../../img/loading.gif" style="width:12px;height:12px"></image>
+        <text>玩命加载中...</text>
+    </view>
+    <view style="display:none" wx:else>
+        <text></text>
+    </view>
+    <view style="display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;margin-top：10rpx" wx:if="{{otherMessage.length==0}}">
+        <text>当前页面暂时没有消息哦~</text>
+    </view>
+    <view wx:for="{{otherMessage}}" wx:key="{{messageid}}">
+        <navigator class="dyn-item" id="{{item.messageid}}" url="/pages/content/content?messageid={{item.messageid}}">
+            <view>
+                <image class="dyn-icon" src="{{item.icon}}"></image>
+            </view>
+            <view class="dyn-content" style="width:650rpx;">
+                <text class="user-name">{{item.name}}</text>
+                <view class="content-msg">{{item.title}}</view>
+                <view class="upload-img ">
+                    <view class="upload-img">
+                        <view wx:if="{{index<3}}" wx:for="{{item.img}}" wx:key="{{item}}">
+                            <image mode="aspectFill" src="{{item}}"></image>
+                        </view>
+                    </view>
+                </view>
+                <text class="detail">#{{item.tag}}</text>
+                <view class="status-time">
+                    <text style="color:gray;line-height:20px;">{{item.time}}</text>
+                    <text class="reply response">浏览  |</text>
+                    <text class="reply goodNum">{{item.viewed}}</text>
+                </view>
+            </view>
+        </navigator>
+    </view>
+    <view style="display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;" wx:if="{{hasMore}}">
+        <image src="../../img/loading.gif" style="width:12px;height:12px"></image>
+        <text>玩命加载中...</text>
+    </view>
+</view>

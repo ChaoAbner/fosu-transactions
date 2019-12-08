@@ -1,0 +1,24 @@
+page {
+    background-color: #F6F6F6;
+}
+
+.func {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.item {
+    display: flex;
+    margin-top: 5px;
+    position: relative;
+    background-color: white;
+    padding: 10px 30rpx;
+    font-size: 34rpx;
+}
+
+.item-name {
+    margin-left: 15px;
+    line-height: 25px;
+    font-size: 15px;
+}

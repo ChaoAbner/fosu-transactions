@@ -1,0 +1,88 @@
+<view class="userinfo" wx:if="{{networkType==true}}">
+    <image wx:if="{{userInfo}}" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" style="margin-left:30rpx"></image>
+    <text wx:if="{{userInfo}}" class=" userinfo-nickname">{{userInfo.nickName}}</text>
+    <button style="margin: 1em; color: #F56C6C; background-color: #fff;" wx:if="{{!userInfo}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">点击登录</button>
+
+    <view class="login" wx:if="{{auth==1}}">
+        <image src="../../img/ok.png" style="width:12px;height:12px"></image>
+        <text style="color:#dcedc8;">.已认证</text>
+    </view>
+    <view bindtap="login" class="nologin" wx:else>
+        <text style="color:white;">.未认证</text>
+    </view>
+    <image bindtap="sysConf" src="../../img/sysConf1.png" style="width:50rpx;height:50rpx;margin-left:25rpx;"></image>
+</view>
+<view class="swiper-tab">
+    <view bindtap="swichNav" class="swiper-tab-list {{currentTab==0?'on':''}}" data-current="0">已发布</view>
+    <view bindtap="swichNav" class="swiper-tab-list {{currentTab==1?'on':''}}" data-current="1">已收藏</view>
+</view>
+<view  style="height:100%;margin-top:5px;" wx:if="{{currentTab==0}}">
+    <!-- <view style="display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;" wx:if="{{hasRefresh}}">
+        <image src="../../img/loading.gif" style="width:12px;height:12px"></image>
+        <text>玩命加载中...</text>
+    </view>
+    <view style="display:none" wx:else>
+        <text></text>
+    </view> -->
+    <view style="display: flex;flex-direction:column;align-items: center" wx:if="{{!fabuMessage.length}}">
+        <image src="../../img/fabu0.png" style="width:330rpx;height:180rpx;margin-top:100rpx"></image>
+        <view class="fabu0">您还未发布过信息~</view>
+    </view>
+    <view wx:for="{{fabuMessage}}" wx:key="{{id}}">
+        <view bindtap="goContentDetail" data-item = "{{item}}" data-index="{{index}}" data-type="publish" bindlongpress="removeIssue" class="dyn-item1" data-hi="{{item.id}}" id="{{item.id}}" url="/pages/content/content?fromMy=1&messageid={{item.id}}">
+            <view class="xinxi-item">
+                <view>
+                    <image class="list-image" mode="aspectFill" src="{{item.image[0]}}"></image>
+                </view>
+                <view class="xinxi-text">
+                    <text class="xinxi-title black">{{item.title}}</text>
+                    <view class="xinxi-stamp">
+                        <text>#{{item.category}}</text>
+                        <text>{{item.createdTime}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view style="display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;" wx:if="{{hasMore}}">
+        <image src="../../img/loading.gif" style="width:12px;height:12px"></image>
+        <text>玩命加载中...</text>
+    </view>
+</view>
+<view  style="height:100%;margin-top:5px;" wx:if="{{currentTab==1}}">
+    <!-- <view style="display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;" wx:if="{{hasRefresh}}">
+        <image src="../../img/loading.gif" style="width:12px;height:12px"></image>
+        <text>玩命加载中...</text>
+    </view>
+    <view style="display:none" wx:else>
+        <text></text>
+    </view> -->
+    <view style="display: flex;flex-direction:column;align-items: center" wx:if="{{!collectMessage.length}}">
+        <image src="../../img/collect0.png" style="width:330rpx;height:180rpx;margin-top:100rpx"></image>
+        <view class="fabu0">您还未收藏过信息~</view>
+    </view>
+    <view wx:for="{{collectMessage}}" wx:key="{{id}}">
+        <view bindtap="goContentDetail" data-item = "{{item}}" data-index="{{index}}" data-type="collect" bindlongpress="removeFav" class="dyn-item1" data-hi="{{item.id}}" id="{{item.id}}" url="{{item.remove==0?'/pages/content/content?messageid={{item.id}}':'/pages/gone/gone'}}">
+            <view class="xinxi-item">
+                <view>
+                    <image class="list-image" mode="aspectFill" src="{{item.image[0]}}"></image>
+                </view>
+            <!--     <view wx:else>
+                    <image class="list-image" mode="aspectFill" src="../../img/404.png"></image>
+                </view> -->
+                <view class="xinxi-text">
+                    <text class="xinxi-title black">{{item.title}}</text>
+                    <view class="xinxi-stamp">
+                        <text>#{{category[item.categoryId]}}</text>
+                        <!-- <text wx:else>#发布者已删除</text> -->
+                        <text>{{item.createdTime}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view style="display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;" wx:if="{{hasMore}}">
+        <image src="../../img/loading.gif" style="width:12px;height:12px"></image>
+        <text>玩命加载中...</text>
+    </view>
+</view>

@@ -1,0 +1,20 @@
+.weui-agree__link {
+    display: inline;
+    color: #586C94;
+}
+
+.notice-view {
+    color: grey;
+    font-size: 28rpx;
+    text-indent: 2em;
+    line-height: 1.5em;
+    margin: 20rpx 40rpx;
+}
+
+.notice {
+    color: grey;
+    font-size: 40rpx;
+    text-align: center;
+    margin: 60rpx 20rpx 20rpx 20rpx;
+    font-weight: bold;
+}

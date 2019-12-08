@@ -1,0 +1,30 @@
+@import "../things/things.wxss";
+
+.swiper-book {
+    display: flex;
+    text-align: center;
+    padding: 0rpx 10rpx;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.swiper-book-list {
+    border: 1px solid #eee;
+    border-radius: 8rpx;
+    padding: 5px 15rpx;
+    font-size: 28rpx;
+    color: grey;
+    margin: 5px 8rpx;
+}
+
+.on {
+    color: #F56C6C;
+    border: 1rpx solid #F56C6C;
+}
+
+.xiala-img {
+    flex-grow: 1;
+    height: 40rpx;
+    width: 40rpx;
+}

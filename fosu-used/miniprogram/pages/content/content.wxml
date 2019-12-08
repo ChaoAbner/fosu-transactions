@@ -1,0 +1,83 @@
+<view class="title_item">
+    <view class="title_left">
+        <text class="title">{{message.title}}</text>
+        <view class="title_time">
+            <text>{{message.createdTime}}</text>
+            <!-- <text>浏览{{message.viewing}}人</text> -->
+        </view>
+    </view>
+    <view class="title_right">
+        <view class="collectitem" wx:if="{{!isAdded}}">
+            <image bindtap="addToFav" class="collectico" src="../../img/Star.png"></image>
+            <text class="collect">收藏</text>
+        </view>
+        <view class="collectitem" wx:else>
+            <image bindtap="removeFav" class="collectico" src="../../img/stars.png"></image>
+            <text class="collect">取消收藏</text>
+        </view>
+    </view>
+</view>
+<view class="body">
+    <view class="biaoti1">
+        <text class="biaoti-left">图片详情 </text>
+        <view class="imgs">
+            <view wx:for="{{message.image}}" wx:for-item="Image" wx:key="{{item}}">
+                <image bindtap="previewImage" class="imgs-detail" data-num="{{index}}" mode="aspectFill" src="{{Image}}"></image>
+            </view>
+        </view>
+    </view>
+    <view class="biaoti2">
+        <text class="biaoti-left">详细描述</text>
+        <text class="biaoti-right1">{{message.description}}</text>
+    </view>
+    <view class="biaoti">
+        <text class="biaoti-left">类型标签</text>
+        <text class="label">#{{message.category}}</text>
+    </view>
+</view>
+<view class="body" style="margin-top:10rpx">
+    <view class="biaoti">
+        <text class="biaoti-left">联系人</text>
+        <text class="biaoti-right">{{message.user.contactName}}</text>
+    </view>
+    <view class="biaoti">
+        <text class="biaoti-left">微信号码</text>
+        <text wx:if='{{auth}}' class="biaoti-right" selectable="true">{{message.user.wechat}}</text>
+        <text wx:else class="biaoti-right" selectable="true">******</text>
+        <text bindtap="copy" class="copy">复制</text>
+    </view>
+    <view class="biaoti" wx:if="{{message.user.phone}}">
+        <text class="biaoti-left">手机号码</text>
+        <text class="biaoti-right">{{message.user.phone}}</text>
+    </view>
+</view>
+<view class=" marTop" wx:if="{{fromMy==1}}">
+    <button bindtap="deleteMessage" formType="deleteinf" size="default" style="background-color:#da3c43;width:650rpx;" type="primary">删除信息</button>
+</view>
+<view wx:if="{{auth==-1}}">
+    <view class="tip">为保障用户信息安全，请您先进行<navigator class="weui-agree__link" url="/pages/login/login">NetID登录</navigator>，认证后即可查看具体联系人信息。</view>
+</view>
+<view class="body" style="margin-top:20rpx;padding:0rpx;margin-bottom:0px">
+    <view class="liuyan">
+        <text style="font-size:34rpx;padding:0 40rpx;color:black">全部留言（{{message.comments.length}}）</text>
+    </view>
+    <view class="liuyan0" wx:if="{{liuyan0}}">该信息暂时没有留言</view>
+    <view class="dyn-item" style="border-bottom:0px;padding-bottom:0;margin-bottom:0" wx:for="{{message.comments}}" wx:key="{{id}}">
+        <view bindtap="focusReply" data-hi="{{item.id}}" id="{{'comment-'+item.id}}" style="display:flex;border-bottom:1px solid #efeff4">
+            <view>
+                <image class="dyn-icon" src="{{item.user.avatar}}"></image>
+            </view>
+            <view class="dyn-content" style="width:630rpx;padding-bottom:20rpx;">
+                <text class="user-name2">{{item.user.name}}</text>
+                <text style="color:gray;margin-top:8rpx;font-size:18rpx;">{{item.createdTime}}</text>
+                <view class="content-msg" style="margin-top:10rpx" wx:if="{{item.sendto=='NA'}}">{{item.content}}</view>
+                <view class="content-msg" style="margin-top:10rpx" wx:else><!-- 评论<text class="content-msg" style="color:#2a579a">@{{item.sendto}}</text>  -->{{item.content}}</view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="zheban"></view>
+<view class="liuyaninput">
+    <input bindinput="bindCommentInput" cursorSpacing="20" focus="{{focusLabel}}" name="liuyan" placeholder="{{placeholderText}}" placeholderClass="liuyanclass" style="margin-left:40rpx;font-size:30rpx;width:500rpx;border-bottom:1px solid #efeff4 " value="{{commentInput}}"></input>
+    <button bindtap="sendComment" formType="submit" style="background-color:{{netid.length==0?'#c4c4c4':'#2a579a'}};width:70px;font-size:15px" type="primary">发送</button>
+</view>
