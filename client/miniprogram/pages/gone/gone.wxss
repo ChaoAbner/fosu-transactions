@@ -1,0 +1,71 @@
+page {
+    background-color: #F6F6F6;
+}
+
+.title_item {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    padding: 20rpx 50rpx;
+}
+
+.title_left {
+    display: flex;
+    flex-direction: column;
+    width: 500rpx;
+}
+
+.title {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 35rpx;
+    font-weight: bold;
+    color: black;
+}
+
+.title_time {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 20rpx;
+    color: gainsboro;
+    justify-content: space-between;
+    margin-top: 20rpx;
+    position: relative;
+}
+
+.title_right {
+    margin-left: 80rpx;
+}
+
+.collectitem {
+    display: flex;
+    flex-direction: column;
+    width: 120rpx;
+    align-items: center;
+}
+
+.collectico {
+    width: 60rpx;
+    height: 60rpx;
+}
+
+.collect {
+    font-size: 25rpx;
+    color: black;
+    margin-top: 5rpx;
+    display: flex;
+    justify-content: center;
+}
+
+.imgs-wc {
+    display: block;
+    margin: 50rpx auto 0 auto;
+}
+
+.notice {
+    color: #c0c2c5;
+    font-size: 40rpx;
+    text-align: center;
+    margin-top: 180rpx;
+    font-weight: bold;
+}

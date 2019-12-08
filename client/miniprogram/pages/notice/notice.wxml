@@ -1,0 +1,6 @@
+<view class="notice">免责声明</view>
+<view class="notice-view ">
+1、"佛大二手交易平台"提供二手物品、书籍信息发布平台，我们会尽量排除不良发布信息者，购买二手物品请仔细辨别。</view>
+<view class="notice-view ">
+2、交易双方自行承担交易风险和因此产生的经济损失，"佛大二手交易信息"不为交易产品信息的可靠性、准确性和产品质量承担任何责任。</view>
+<view class="notice-view ">3、对于无良交易发布者，请在此<navigator class="weui-agree__link" url="/pages/feedback/feedback">举报/申诉</navigator>举报。</view>

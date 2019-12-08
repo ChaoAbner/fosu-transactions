@@ -1,0 +1,69 @@
+        {
+  "pages": [
+	"pages/index/index",
+    "pages/getOpenId/getOpenId",
+    "pages/userConsole/userConsole",
+    "pages/storageConsole/storageConsole",
+    "pages/databaseGuide/databaseGuide",
+    "pages/addFunction/addFunction",
+    "pages/deployFunctions/deployFunctions",
+    "pages/chooseLib/chooseLib",
+    "pages/openapi/openapi",
+    "pages/logs/logs",
+    "pages/books/books",
+    "pages/things/things",
+    "pages/my/my",
+    "pages/fabu/fabu",
+    "pages/fabuselect/fabuselect",
+    "pages/fabu1/fabu1",
+    "pages/fabu2/fabu2",
+    "pages/content/content",
+    "pages/contact/contact",
+    "pages/notice/notice",
+    "pages/sys/sys",
+    "pages/feedback/feedback",
+    "pages/login/login",
+    "pages/gone/gone",
+    "pages/hot/hot",
+    "pages/zhinan/zhinan",
+    "pages/message/message",
+    "pages/info/info",
+    "pages/support/support"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F56C6C",
+    "navigationBarTitleText": "佛大二手交易",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "position": "top",
+    "backgroundColor": "#F56C6C",
+    "color": "#ffffff",
+    "selectedColor": "#DCEDC8",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "闲置"
+      },
+
+      {
+        "pagePath": "pages/books/books",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/fabuselect/fabuselect",
+        "text": "发布"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的"
+      }
+    ]
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx18a2ac992306a5a4"
+  ],
+  "sitemapLocation": "sitemap.json"
+}

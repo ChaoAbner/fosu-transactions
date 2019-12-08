@@ -1,0 +1,21 @@
+<view class="body2" style="margin-top:20rpx;padding:0rpx">
+    <view class="liuyan2">
+        <text style="font-size:36rpx;padding:0 40rpx;color:#999">通知消息</text>
+    </view>
+    <view style="padding-bottom: 0.5em;" wx:for="{{comments}}" wx:key="{{commentid}}">
+        <view class="dyn-item2" id="{{item.messageid}}" style="margin-bottom:0;margin-left:30rpx">
+            <view>
+                <image class="dyn-icon2" mode="aspectFill" src="http://img.fosuchao.com/logo.png"></image>
+            </view>
+            <view class="dyn-content2" style="width:520rpx;padding-bottom:20rpx">
+                <!-- <text class="user-name2">FosuHub的通知</text> -->
+                <view class="content-msg2" style="margin-top:10rpx">{{item.content}}</view>
+                <view class="shijiankaoyou">
+                    <text style="font-size=16rpx; color:gray;line-height:33rpx;">{{item.createTime}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- <view bindtap="dianji" style="align-self:center;margin:30rpx 40rpx;font-size:30rpx" wx:if="{{!hide}}">点击加载更多</view> -->
+    <!-- <view style="align-self:center;margin:30rpx 40rpx;font-size:30rpx" wx:if="{{liuyan0}}">暂无更多信息</view> -->
+</view>

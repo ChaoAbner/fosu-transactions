@@ -1,0 +1,94 @@
+<view bindchange="topbookChange" style="height:{{topbookheight}}; overflow:hidden;">
+    <view class="swiper-book" style="margin:5px 10rpx 0 10rpx;">
+        <view bindtap="swichNav" class="swiper-book-list {{currentTab==0?'on':''}}" data-current="0" data-item="all">全部</view>
+        <view bindtap="swichNav" wx:for='{{categoryOrginList}}' class="swiper-book-list {{currentTab==(index + 1)?'on':''}}" data-current="{{index + 1}}" data-item="{{item}}">{{item}}</view>
+
+        <view style="flex-grow:1;">
+            <image bindtap="xiala" class="xiala-img" src="{{topbookheight=='45px'?'../../img/xiala.png':'../../img/hua.png'}}"></image>
+        </view>
+    </view>
+    <view class="swiper-book" style="margin:0px  10rpx 5px 10rpx;">
+        <view bindtap="swichNav"  data-item="{{item}}" wx:for='{{categoryAddList}}' class="swiper-book-list {{currentTab==(index + 6) ?'on':''}}" data-current="{{index + 6}}">{{item}}</view>
+    </view>
+</view>
+<view class="jianxi"></view>
+<view bindscrolltolower="loadMore" style="height:100%;" wx:if="{{currentTab==0}}">
+<!--     <view style="display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;" wx:if="{{hasRefresh}}">
+        <image src="../../img/loading.gif" style="width:12px;height:12px"></image>
+        <text>玩命加载中...</text>
+    </view>
+    <view style="display:none" wx:else>
+        <text></text>
+    </view> -->
+    <view style="display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;margin-top：2em;" wx:if="{{allMessage.length==0}}">
+        <text>该分类暂时没有商品哦~</text>
+    </view>
+    <view wx:for="{{allMessage}}" wx:key="{{id}}">
+        <view bindtap="goContentDetail" data-item = "{{item}}"  class="dyn-item" id="{{item.messageid}}" url="/pages/content/content?messageid={{item.id}}">
+            <view>
+                <image class="dyn-icon" src="{{item.user.avatar}}"></image>
+            </view>
+            <view class="dyn-content" style="width:650rpx;">
+                <text class="user-name">{{item.user.username}}</text>
+                <view class="content-msg">{{item.title}}</view>
+                <view class="upload-img ">
+                    <view class="upload-img">
+                        <view wx:if="{{index<3}}" wx:for="{{item.image}}" wx:key="{{item}}">
+                            <image mode="aspectFill" src="{{item}}"></image>
+                        </view>
+                    </view>
+                </view>
+                <text class="detail">#{{item.category}}</text>
+                <view class="status-time">
+                    <text style="color:gray;line-height:20px;">{{item.createdTime}}</text>
+                    <text class="reply response">价格  |</text>
+                    <text class="reply goodNum" style="color: #f00">{{item.price}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view style="display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;" wx:if="{{hasMore}}">
+        <image src="../../img/loading.gif" style="width:12px;height:12px"></image>
+        <text>玩命加载中...</text>
+    </view>
+</view>
+<view bindscrolltolower="loadMore" style="height:100%;" wx:if="{{currentTab!==0}}">
+<!--     <view style="display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;" wx:if="{{hasRefresh}}">
+        <image src="../../img/loading.gif" style="width:12px;height:12px"></image>
+        <text>玩命加载中...</text>
+    </view>
+    <view style="display:none" wx:else>
+        <text></text>
+    </view> -->
+    <view style="display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;margin-top：2em" wx:if="{{otherMessage.length==0}}">
+        <text>该分类暂时没有商品哦~</text>
+    </view>
+    <view wx:for="{{otherMessage}}" wx:key="{{id}}">
+        <view bind:tap="goContentDetail" class="dyn-item" data-item = "{{item}}" id="{{item.id}}" url="/pages/content/content?messageid={{item.id}}">
+            <view>
+                <image class="dyn-icon" src="{{item.user.avatar}}"></image>
+            </view>
+            <view class="dyn-content" style="width:650rpx;">
+                <text class="user-name">{{item.user.username}}</text>
+                <view class="content-msg">{{item.title}}</view>
+                <view class="upload-img ">
+                    <view class="upload-img">
+                        <view wx:if="{{index<3}}" wx:for="{{item.image}}" wx:key="{{item}}">
+                            <image mode="aspectFill" src="{{item}}"></image>
+                        </view>
+                    </view>
+                </view>
+                <text class="detail">#{{item.category}}</text>
+                <view class="status-time">
+                    <text style="color:gray;line-height:20px;">{{item.createdTime}}</text>
+                    <text class="reply response">价格  |</text>
+                    <text class="reply goodNum" style="color: #f00">{{item.price}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view style="display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;" wx:if="{{hasMore}}">
+        <image src="../../img/loading.gif" style="width:12px;height:12px"></image>
+        <text>玩命加载中...</text>
+    </view>
+</view>
