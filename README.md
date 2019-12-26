@@ -45,11 +45,11 @@
 
 ## 产品快照
 
-![1577178414(F:\typoraImg\1577178414(1).jpg)](C:\Users\叶超\Desktop\project\佛大二手交易\images\1577178414(1).jpg)
+![1577178414(F:\typoraImg\1577178414(1).jpg)](https://github.com/ChaoAbner/fosu-transactions/blob/master/images/1577178414(1).jpg)
 
-![1577178450(F:\typoraImg\1577178450(1).jpg)](C:\Users\叶超\Desktop\project\佛大二手交易\images\1577178450(1).jpg)
+![1577178450(F:\typoraImg\1577178450(1).jpg)](https://github.com/ChaoAbner/fosu-transactions/blob/master/images/1577178450(1).jpg)
 
-![1577178461(F:\typoraImg\1577178461(1).jpg)](C:\Users\叶超\Desktop\project\佛大二手交易\images\1577178461(1).jpg)
+![1577178461(F:\typoraImg\1577178461(1).jpg)](https://github.com/ChaoAbner/fosu-transactions/blob/master/images/1577178461(1).jpg)
 
 ## 一些问题
 
